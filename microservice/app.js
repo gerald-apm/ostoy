@@ -5,8 +5,8 @@ app.set('port', process.env.PORT || 8080);
 let pod = process.env.HOSTNAME || 'unknown-pod';
 
 app.get('/', function(request, response) {
-  let randomColor = getRandomColor(); // <-- comment this
-  //let randomColor = getRandomGrayScaleColor(); // <-- uncomment this
+  //let randomColor = getRandomColor(); // <-- comment this
+  let randomColor = getRandomGrayScaleColor(); // <-- uncomment this
 
   response.writeHead(200, {'Content-Type': 'application/json'});
   response.end(JSON.stringify({
@@ -33,7 +33,7 @@ app.get('/hpa', function(request, response){
 
   console.time('mySlowFunction');
   let result = 0;
-  let baseNumber = 17; //change this to make it slower or faster by increasing/decreasing this number  
+  let baseNumber = 5; //change this to make it slower or faster by increasing/decreasing this number  
   for (var i = Math.pow(baseNumber, 6); i >= 0; i--) {    
     result += Math.atan(i) * Math.tan(i);
   };
